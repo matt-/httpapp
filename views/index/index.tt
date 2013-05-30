@@ -1,0 +1,20 @@
+<h1>Welcome Index.tt</h1>
+<p>[% welcome %]</p>
+<p>Welcome to httpApp Server. The server is up and running.</p>
+
+<p>This page uses <i>controllers/index.php</i> and calls the function <i>index</i>.  Index is assumed if no method is given.</p>
+
+<div class="break"></div>
+<form action="/" method="post">
+  <fieldset>
+  <label for="name">Session - Name</label>
+
+  <input name="name" type="text" value="[% name %]" class="small" id="name"  />
+  <span>Enter your name to test the session.</span>
+  <input type="submit" value="Submit Form" class="submit" />
+  </fieldset>
+</form>
+
+
+<div class="break"></div>
+this file can be found at <i>views/index/index.tt</i>

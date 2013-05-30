@@ -1,0 +1,4 @@
+<h1>Welcome</h1>
+<p>This is a demo of "Pages".  This page needs no controller.</p>
+this file can be found at <i>views/pages/welcome.tt</i>
+<div class="break"></div>

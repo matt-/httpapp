@@ -1,0 +1,33 @@
+<h1>Current Sessions</h1>
+<form action="" method="get">
+  <table width="610px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr class="table_header">
+      <th scope="col">Userame</th>
+      <th scope="col">Type</th>
+	  <th scope="col">Session Id</th>
+      <th scope="col"><!--Delete--></th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+    [% IF sessions.keys.size %]
+		[% FOREACH sess = sessions.keys %]
+		  <tr class="table_info">
+		     <td><strong>[% sessions.${sess}.name || 'unknown' %]</strong></td>
+		     <td>user</td>
+		  <td>[% sess %]</td>
+		     <td><!--<input type="checkbox" />--></td>
+		     <td><!--<a href="#">Delete</a>--></td>
+		   </tr>
+		[% END %]
+	[% ELSE %] 
+	   <tr class="table_info">
+	     <td colspan="5"><strong>No current sessions!</strong></td>
+	   </tr>	
+	[% END %]
+  </table>
+  <fieldset>
+	<input type="submit" value="Update" class="submit right_button" />
+  </fieldset>
+</form>
+<br class="clear" />
+<div class="break"></div>

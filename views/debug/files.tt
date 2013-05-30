@@ -1,0 +1,68 @@
+[% USE date %]
+[% USE Dumper %]
+
+[% status_list = ['no change', 'new file', 'out of date'] %]
+
+<form action="" method="get" style="margin: 0px; padding: 0px;">
+	<input type="submit" value="Refresh" class="submit right_button" />
+</form>
+
+<strong>Uptime: [% uptime %] seconds.</strong>
+
+<h1>Core</h1>
+<form action="" method="post">
+ <table width="610px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr class="table_header">
+      <th scope="col">File</th>
+      <th scope="col">Timestamp</th>
+	  	<th scope="col">Status</th>
+    </tr>
+	[% FOREACH core_file = core.keys %]
+	  <tr class="table_info">
+		<td><strong>[% core_file %]</strong></td>
+		<td>[% date.format(core.${core_file}.time) %]</td>
+		<td [% ' style="color:red"' IF core.${core_file}.status > 0 %]>
+		[% status_list.${core.${core_file}.status} %]
+		</td>
+	   </tr>
+	[% END %]
+  </table>
+  <fieldset>
+	<input type="submit" value="Reload Core" name="reload_core" class="submit right_button" />
+  </fieldset>
+</form>
+<br class="clear" />
+
+<h1>Current Controllers</h1>
+<form action="" method="post">
+  <table width="610px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr class="table_header">
+      <th scope="col">File</th>
+      <th scope="col">Timestamp</th>
+	  	<th scope="col">Status</th>
+    </tr>
+    [% IF controllers.keys.size %]
+		[% FOREACH controller_file = controllers.keys %]
+		  <tr class="table_info">
+		     <td><strong>[% controller_file %]</strong></td>
+		     <td>[% date.format(controllers.${controller_file}.time) %]</td>
+					<td [% ' style="color:red"' IF controllers.${controller_file}.status > 0 %]>[% status_list.${controllers.${controller_file}.status} %]</td>
+		   </tr>
+		[% END %]
+	[% ELSE %] 
+	   <tr class="table_info">
+	     <td colspan="3"><strong>No Controllers Loaded</strong></td>
+	   </tr>	
+	[% END %]
+  </table>
+  <fieldset>
+	[% IF controllers.keys.size %]
+		<input type="submit" value="Reload Controllers" name="reload_controllers" class="submit right_button" />
+	[% END %]
+  </fieldset>
+</form>
+
+<br class="clear" />
+<div class="break"></div>

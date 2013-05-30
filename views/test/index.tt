@@ -1,0 +1,11 @@
+<h1>Welcome to the test page</h1>
+<div id="list">
+	<ul>
+		<li><a href="/test/notice_test">Notice Test</a></li>
+		<li><a href="/test/error_test">One Error Test</a></li>
+		<li><a href="/test/error_test?more=1">Two Errors Test</a></li>
+	</ul>
+</div>
+
+<div class="break"></div>
+this file can be found at <i>views/test/test.tt</i>

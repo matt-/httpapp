@@ -1,0 +1,11 @@
+<div id="sidebar">
+	<h2>Demos</h2>
+	<p>Pick a demo you want to see:</p>
+	<ul>
+		<li><a href="/test/">Test Home</a></li>
+		<li><a href="/test/notice_test">Notice Test</a></li>
+		<li><a href="/test/error_test">One Error Test</a></li>
+		<li><a href="/test/error_test?more=1">Two Errors Test</a></li>
+		<li><a href="/settings">404 Test</a></li>
+	</ul>
+</div> <!-- end sidebar -->

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>[% title %]</title>
+		<link href="/css/style_green.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+	<body>
+		<div id="wrapper">
+			
+			<div id="header"> 
+				<img src="/images/logo.jpg" height="116" width="530" alt="Logo" />
+				<ul id="navigation">
+					<li class="[% "current_page_item" IF controller == "index" %]"> <a href="/">Dashboard</a> </li>
+					<li class="[% "current_page_item" IF controller == "test" %]"><a href="/test">Demos</a></li>
+					<li class="[% "current_page_item" IF controller == "debug" %]"><a href="/debug">Debug</a></li>
+				</ul>
+				[% IF session.name %]
+				<p id="user_info">Hi [% session.name %] | <a href="/index/logout">Logout</a></p>
+				[% END %]
+			</div>
+			[% IF notice.header %]
+			<div class="success">
+				<p><span>[% notice.header %]</span> [% notice.message %].</p>
+			</div>				
+			[% END %]
+			[% IF errors.size %]
+			<div class="error">
+				[% IF errors.size == 1 %]
+					<p><span>Error: </span> [% errors.0 %]</p>
+				[% ELSE %]
+					<p><span>This page had the following errors:</span></p>
+					<ul>
+						[% FOREACH error = errors %]
+							<li>&nbsp;&nbsp;&nbsp;[% error %]</li>
+						[% END %]
+					</ul>
+				[% END %]
+			</div>			
+			[% END %]
+			<div id="content">
+				[% content %]
+			</div><!-- end content -->
+			[% sidebar = "$controller/sidebar.tt" %]
+			[% TRY %]
+				[% INCLUDE $sidebar %]
+			[% CATCH %]
+				[% INCLUDE "layout/default/sidebar.tt" %]
+			[% END %]	
+			<div id="footer"> </div>
+		</div>
+	</body>
+</html>
