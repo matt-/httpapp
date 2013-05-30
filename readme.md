@@ -4,7 +4,7 @@ httpapp
 A simple MVC style webserver for small web apps (like ruby webrick)
 
 ## Requirements ##
-* Perl +
+* Perl 5
 
 ## How to use ##
 Controllers are simple modules, and views use Template Toolkit.
